@@ -11,3 +11,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.wrapper{
+  /* padding: 80px; */
+  margin-top: 100px;
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px solid rgb(226, 218, 218);
+
+}
+
+
+.head{
+  display: flex;
+  justify-content: space-between;
+ 
+}
+.card-img-container {
+  display: flex;
+  justify-content: flex-end;
+}
+#card-title{
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 200px;
+  font-size: small;
+}
+.product-detail-card{
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-around */
+}
