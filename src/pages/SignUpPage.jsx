@@ -2,12 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik'
-import * as Yup from 'yup'; 
+import * as Yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
 
 const SignUpPage = () => {
 
-    const navigate= useNavigate();
+    const navigate = useNavigate();
     const onSubmit = () => {
         navigate('/', true);
     }
@@ -33,10 +33,8 @@ const SignUpPage = () => {
                 <div className="col-md-3"></div>
                 <div className="col-md-6">
                     <div className="wrapper">
-                        <h2>
-                            Sign up
-                        </h2>
-                        <hr />
+
+
                         <Formik
                             initialValues={initialValues}
                             onSubmit={onSubmit}
@@ -45,10 +43,12 @@ const SignUpPage = () => {
                             {
                                 (formik) => {
                                     return (
-                                        <Form>
-                                            <div className="form-group">
-                                                <label htmlFor="firstname">First Name</label>
-                                                <Field type="text" name="firstname" className={
+                                        <Form style={{ padding: '30px 100px' }}>
+                                            <h1 style={{ textAlign: 'center', margin: '0px 0px 30px 0px' }}>
+                                                Sign up
+                                            </h1>
+                                            <div className="form-group" >
+                                                <Field type="text" name="firstname" placeholder="First Name" className={
                                                     formik.touched.firstname && formik.errors.firstname
                                                         ? "form-control is-invalid"
                                                         : "form-control"
@@ -62,8 +62,7 @@ const SignUpPage = () => {
 
 
                                             <div className="form-group">
-                                                <label htmlFor="lastname">Last Name</label>
-                                                <Field type="text" name="lastname" className={
+                                                <Field type="text" name="lastname" placeholder="Last Name" className={
                                                     formik.touched.lastname && formik.errors.lastname
                                                         ? "form-control is-invalid"
                                                         : "form-control"
@@ -76,8 +75,7 @@ const SignUpPage = () => {
                                             </div>
 
                                             <div className="form-group">
-                                                <label htmlFor="email">Email</label>
-                                                <Field type="text" name="email" className={
+                                                <Field type="text" name="email" placeholder="Email" className={
                                                     formik.touched.email && formik.errors.email
                                                         ? "form-control is-invalid"
                                                         : "form-control"
@@ -90,8 +88,7 @@ const SignUpPage = () => {
                                             </div>
 
                                             <div className="form-group">
-                                                <label htmlFor="mobile" name="mobile">Mobile no</label>
-                                                <Field type="number" name="mobile" className={
+                                                <Field type="number" name="mobile" placeholder="Mobile No." className={
                                                     formik.touched.email && formik.errors.email
                                                         ? "form-control is-invalid"
                                                         : "form-control"
@@ -104,8 +101,7 @@ const SignUpPage = () => {
                                             </div>
 
                                             <div className="form-group">
-                                                <label htmlFor="password" name="password">Password</label>
-                                                <Field type="password" name="password" className={
+                                                <Field type="password" name="password" placeholder="Password" className={
                                                     formik.touched.email && formik.errors.email
                                                         ? "form-control is-invalid"
                                                         : "form-control"
@@ -125,8 +121,7 @@ const SignUpPage = () => {
                             }
 
                         </Formik>
-                        <br />
-                        <p className="text-center">
+                        <p className="text-center" >
                             Already Registerd <Link to="/login">Login here</Link>
                         </p>
                     </div>

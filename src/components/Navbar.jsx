@@ -6,54 +6,84 @@ import { HiOutlineLogin } from "react-icons/hi";
 import { useSelector, useDispatch } from "react-redux"
 import { addItem } from "../redux/cartSlice";
 import Select from 'react-select'
+import { useState } from "react";
 
 const Navbar = () => {
-    const myCart = useSelector(state=> state.myCart)
+    const myCart = useSelector(state => state.myCart)
+    const myFavouritePage = useSelector(state => state.myFavouritePage)
+
+    const [isOpen, setIsOpen] = useState(false);
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
         <>
             <div className="head">
-                <h1 className=" text-left">Shoplane</h1>
+                <div className=" shoplane-logo">
+                    <h1 className="shop-logo">SHOP</h1>
+                    <h1 className="lane-logo">LANE</h1>
+                </div>
                 <div className="form-inline my-2 my-lg-0">
 
-                    <Link to="/login" style={{ fontSize: '10px' }}><label htmlFor='image'>
-                        <FaRegUserCircle fontSize={10} />
-                        <input
-                            type="file" name="image" id="image" style={{ display: "none" }} />
-                    </label>Login</Link>
+                    {/* <div>
+                        <button onClick={toggleDropdown}><FaRegUserCircle />Login or Signup</button>
+                        {isOpen && (
+                            <ul style={{ listStyle: 'none' }}
+                            >
+                                <li ><Link to="/login">Login</Link></li>
+                                <li ><Link to="/signup">Signup</Link></li>
+                                <li ><Link to="/cart">Your Cart</Link></li>
+                                <li ><Link to="/favourite">Favourite Page</Link></li>
 
+                            </ul>
+                        )}
 
-                    <label htmlFor='image'>
-                        <FaRegUserCircle fontSize={30} />
-                        {/* <input type="file" name="image" id="image" style={{ display: "none" }} /> */}
-                        <Select placeholder="Login or Signup here">
-                            <options value="rigatoni">Rigatoni</options>
+                    </div> */}
+                    <div>
+                        <div className="dropdown" style={{ marginRight: '20px' }}>
+                            <button
+                                className=" dropdown-toggle"
+                                onClick={toggleDropdown}
+                            >
+                                <FaRegUserCircle /> Login or Signup
+                            </button>
+                            {isOpen && (
+                                <div className="dropdown-menu" style={{ display: 'block' }}>
+                                    <Link to="/login" className="dropdown-item">Login</Link>
+                                    <Link to="/signup" className="dropdown-item">SignUp</Link>
+                                    <Link to="/cart" className="dropdown-item">Your Cart</Link>
+                                    <Link to="/favourite" className="dropdown-item">Favourite Page</Link>
 
-                        </Select>
-                    </label>
+                                </div>
+                            )}
+                        </div>
+                    </div>
 
+                    <Link to='/favourite'>  <span className="item-numbers-length">{myFavouritePage.length}</span>
+                        <label htmlFor='image'>
+                            <FiHeart fontSize={30} />
 
-                    <Link to='/favourite'>  <span className="badge badge-light">{myCart.length}</span> <label htmlFor='image'>
-                        <FiHeart fontSize={30} />
-                       
+                        </label></Link>
+
+                    <Link to='/cart'> <span className="item-numbers-length">{myCart.length}</span> <label htmlFor='image'>
+                        <BsCart3 fontSize={40} />
+
+                        {console.log(myCart)}
                     </label></Link>
 
-                   <Link to='/cart'> <span className="badge badge-light">{myCart.length}</span> <label htmlFor='image'>
-                        <BsCart3 fontSize={40} />
-                       
-                  {      console.log(myCart)}
-                    </label></Link> 
-                    
                 </div>
             </div>
             <br />
-            <hr />
-            <nav className="navbar navbar-expand-lg navbar-white bg-white">
+
+            <nav className="navbar">
 
 
-                <div className="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul className="navbar-nav mr-auto ">
-                        <li className="nav-item active">
-                            <Link className="nav-link" to="/">All <span className="sr-only">(current)</span></Link>
+                {/* <div > */}
+                <div className="navbar-container">
+                    <ul className="navbar-ul">
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/">All </Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/electronics">Electronics</Link>
@@ -68,19 +98,11 @@ const Navbar = () => {
                             <Link className="nav-link" to="/womencloth">Women's clothing</Link>
                         </li>
 
-
                     </ul>
-
-
-
-                    {/* <label htmlFor='image'>
-                        <HiOutlineLogin fontSize={50} />
-                        <input
-                            type="file" name="image" id="image" style={{ display: "none" }} />
-                    </label> */}
                 </div>
+                {/* </div> */}
             </nav>
-            <hr />
+
         </>
     )
 }

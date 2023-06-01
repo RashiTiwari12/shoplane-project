@@ -1,14 +1,12 @@
-import CategoryList from "../components/CategoryList";
-import Header from "../components/Header"
-import Navbar from "../components/Navbar"
+import AllCategories from "../components/AllCategories";
 
 
-const HomePage =() =>{
+
+const HomePage = () => {
     return (
         <>
-        {/* <Navbar/> */}
-        {/* <Header/> */}
-        <CategoryList/>
+
+            <AllCategories />
         </>
     )
 }

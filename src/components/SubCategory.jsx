@@ -1,45 +1,62 @@
 import { useState } from "react";
 import { FiHeart } from "react-icons/fi";
+import { RiHeartsFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addItem, removeItem } from "../redux/cartSlice";
+import { addFav, removeFav } from "../redux/favouriteSlice";
+import { toggleCart } from "../redux/productSlice";
+
 
 const SubCategory = ({ data }) => {
   const { id, title, price, image, rating } = data;
-  const [isAddedToCart, setIsAddedToCart] = useState(false);
-  const [isAddedToFav, setIsAddedToFav] = useState(false);
+
   const dispatch = useDispatch();
 
-  const addCartHandler = () => {
-    if (isAddedToCart) { dispatch(removeItem({ id })) }
-    else { dispatch(addItem({ id })) }
-    setIsAddedToCart(prev => !prev);
-    console.log(data, "electronics")
-  };
-    // Add your logic for handling the cart here
-    const addHeartHandler=()=>{
-// setIsAddedToFav(prev => !prev)
-// if (isAddedToFav) { dispatch(removeItem({ id })) }
-// else { dispatch(addItem({ id })) }
+  const myCart = useSelector(state => state.myCart)
+  const myFavouritePage = useSelector(state => state.myFavouritePage)
+  console.log(myCart, myFavouritePage)
 
-console.log(data, "electronics")
-    }
- 
+
+  const isFavorite = (productId) => {
+    return myFavouritePage.some(product => product.id === productId);
+  };
+  const isAddedToCartList = (productId) => {
+    return myCart.some(product => product.id === productId);
+  };
+
+  const addCartHandler = () => {
+    console.log(isAddedToCartList(id))
+    if (isAddedToCartList(id)) { dispatch(removeItem(data)) }
+    else { dispatch(addItem({ id, title, price, image, rating })) }
+
+
+  };
+
+  const addHeartHandler = () => {
+
+    if (isFavorite(id)) { dispatch(removeFav(data)) }
+    else { dispatch(addFav({ id, title, price, image, rating })) }
+
+  }
+
   return (
     <>
       <div className="col-sm-3">
         <div className="card" >
           <div className="card-img-container">
 
-           <button onClick={addHeartHandler} htmlFor='image'
-            style={{ backgroundColor: isAddedToCart ? "red" : "" , border:" none"}}>
-              <FiHeart fontSize={30} />
-             
+            <button htmlFor='image'
+              style={{ border: 'none', backgroundColor: 'transparent' }}
+            >
+              <FiHeart fontSize={30} onClick={addHeartHandler}
+                style={{ backgroundColor: isFavorite(id) ? "red" : "" }} />
+
             </button>
-            
+
           </div>
           <Link to={'/products/' + id} >
-            <img src={image} className="card-img-top" alt="..." height={260} />
+            <img src={image} className="card-img-top" alt="..." height={260} style={{ padding: '10px' }} />
           </Link>
           <div className="card-body">
             <h5 className="card-title" id="card-title">Brand, {title} {id}</h5>
@@ -48,9 +65,9 @@ console.log(data, "electronics")
             <button
               onClick={addCartHandler}
               className="btn btn-primary btn-block"
-              style={{ backgroundColor: isAddedToCart ? "red" : "" }}
+              style={{ backgroundColor: isAddedToCartList(id) ? "red" : "" }}
             >
-              {isAddedToCart ? "Remove from cart" : "Add to cart"}
+              {isAddedToCartList(id) ? "Remove from cart" : "Add to cart"}
             </button>
           </div>
         </div>
