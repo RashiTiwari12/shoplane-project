@@ -2,10 +2,7 @@ import { Link } from "react-router-dom"
 import { BsCart3 } from "react-icons/bs";
 import { FiHeart } from "react-icons/fi";
 import { FaRegUserCircle } from "react-icons/fa";
-import { HiOutlineLogin } from "react-icons/hi";
-import { useSelector, useDispatch } from "react-redux"
-import { addItem } from "../redux/cartSlice";
-import Select from 'react-select'
+import { useSelector } from "react-redux"
 import { useState } from "react";
 
 const Navbar = () => {
@@ -32,6 +29,7 @@ const Navbar = () => {
                             <button
                                 className=" dropdown-toggle"
                                 onClick={toggleDropdown}
+                                style={{ borderRadius: '8px', padding: '10px' }}
                             >
                                 <FaRegUserCircle /> Login or Signup
                             </button>
@@ -50,23 +48,17 @@ const Navbar = () => {
                     <Link to='/favourite'>  <span className="item-numbers-length">{myFavouritePage.length}</span>
                         <label htmlFor='image'>
                             <FiHeart fontSize={30} />
-
                         </label></Link>
-
                     <Link to='/cart'> <span className="item-numbers-length">{myCart.length}</span> <label htmlFor='image'>
                         <BsCart3 fontSize={40} />
 
                         {console.log(myCart)}
                     </label></Link>
-
                 </div>
             </div>
             <br />
 
             <nav className="navbar">
-
-
-                {/* <div > */}
                 <div className="navbar-container">
                     <ul className="navbar-ul">
                         <li className="nav-item">
@@ -87,7 +79,6 @@ const Navbar = () => {
 
                     </ul>
                 </div>
-                {/* </div> */}
             </nav>
 
         </>

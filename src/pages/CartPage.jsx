@@ -2,15 +2,14 @@ import { useSelector, useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { removeItem, addItem } from "../redux/cartSlice";
+import { removeItem } from "../redux/cartSlice";
 
 const CartPage = () => {
   const dispatch = useDispatch()
   const myCart = useSelector(state => state.myCart)
+  // { console.log(myCart) }
 
-
-  { console.log(myCart) }
-  if (myCart.length == 0) {
+  if (myCart.length === 0) {
     return "Your cart Page is empty!!"
   } else {
 

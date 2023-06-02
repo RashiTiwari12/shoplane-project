@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { addItem, removeItem } from "../redux/cartSlice";
-import { useState } from "react";
 import { addFav, removeFav } from "../redux/favouriteSlice";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';

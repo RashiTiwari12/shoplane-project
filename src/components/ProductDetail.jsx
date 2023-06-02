@@ -1,10 +1,8 @@
-import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux'
 import { addItem, removeItem } from "../redux/cartSlice";
 import { addFav, removeFav } from "../redux/favouriteSlice";
-import { Link } from "react-router-dom";
 const ProductDetail = ({ data }) => {
   const { id, title, price, image, rating } = data;
 

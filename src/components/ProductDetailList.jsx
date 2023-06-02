@@ -1,10 +1,8 @@
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Constants from '../api/Constants';
 import { useParams } from 'react-router-dom';
 import ProductDetail from './ProductDetail';
-
-
 
 const ProductDetailList = () => {
     const { id } = useParams()
@@ -27,11 +25,7 @@ const ProductDetailList = () => {
                     {
                         <ProductDetail data={productDetail} />
 
-                        // <Suspense fallback={<div>Loading...</div>}>
-                        //     <Product data={productDetail} />
-                        // </Suspense>
                     }
-
 
                 </div>
             </div>
