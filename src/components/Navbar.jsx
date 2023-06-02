@@ -26,20 +26,7 @@ const Navbar = () => {
                 </div>
                 <div className="form-inline my-2 my-lg-0">
 
-                    {/* <div>
-                        <button onClick={toggleDropdown}><FaRegUserCircle />Login or Signup</button>
-                        {isOpen && (
-                            <ul style={{ listStyle: 'none' }}
-                            >
-                                <li ><Link to="/login">Login</Link></li>
-                                <li ><Link to="/signup">Signup</Link></li>
-                                <li ><Link to="/cart">Your Cart</Link></li>
-                                <li ><Link to="/favourite">Favourite Page</Link></li>
 
-                            </ul>
-                        )}
-
-                    </div> */}
                     <div>
                         <div className="dropdown" style={{ marginRight: '20px' }}>
                             <button

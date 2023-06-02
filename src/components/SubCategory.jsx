@@ -1,11 +1,9 @@
-import { useState } from "react";
-import { FiHeart } from "react-icons/fi";
-import { RiHeartsFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
 import { addItem, removeItem } from "../redux/cartSlice";
 import { addFav, removeFav } from "../redux/favouriteSlice";
-import { toggleCart } from "../redux/productSlice";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 
 const SubCategory = ({ data }) => {
@@ -46,12 +44,12 @@ const SubCategory = ({ data }) => {
         <div className="card" >
           <div className="card-img-container">
 
-            <button htmlFor='image'
-              style={{ border: 'none', backgroundColor: 'transparent' }}
-            >
-              <FiHeart fontSize={30} onClick={addHeartHandler}
-                style={{ backgroundColor: isFavorite(id) ? "red" : "" }} />
-
+            <button htmlFor='image' onClick={addHeartHandler} style={{ border: 'none', backgroundColor: 'transparent' }}>
+              {isFavorite(id) ? (
+                <FontAwesomeIcon icon={faHeart} style={{ color: 'red' }} />
+              ) : (
+                <FontAwesomeIcon icon={faHeart} style={{ color: 'black' }} />
+              )}
             </button>
 
           </div>
