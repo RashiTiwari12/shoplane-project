@@ -14,7 +14,7 @@ const ProductDetailList = () => {
     }
     useEffect(() => {
         fetchData()
-    }, [id])
+    })
     return (
         <>
 
