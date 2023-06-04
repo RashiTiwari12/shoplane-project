@@ -52,7 +52,7 @@ const ProductDetail = ({ data }) => {
 
             </div>
 
-            <img src={image} className="card-img-top" alt="..." height={260} />
+            <img src={image} className="card-img-top" alt="..." height={270} style={{ padding: '10px' }} />
             <p>${price}</p>
 
           </div>

@@ -11,7 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.wrapper{
+
+.wrapper {
   /* padding: 80px; */
   margin-top: 100px;
   border-radius: 10px;
@@ -21,10 +22,11 @@ code {
 }
 
 /* NabVar style */
-.head{
+.head {
   display: flex;
   justify-content: space-between;
 }
+
 .shoplane-logo {
   display: flex;
   align-items: center;
@@ -36,12 +38,14 @@ code {
   font-size: 48px;
   font-weight: 700;
   color: rgb(124, 208, 241);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add text shadow for glossy effect */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  /* Add text shadow for glossy effect */
 }
 
 .lane-logo {
   font-family: 'Montserrat', sans-serif;
-  font-size: 48px; /* Adjust font size as needed */
+  font-size: 48px;
+  /* Adjust font size as needed */
 }
 
 .navbar {
@@ -49,11 +53,11 @@ code {
   justify-content: space-around;
   /* background-color: #f2f2f2; */
   /* padding: 10px; */
- width: 100%;
+  width: 100%;
 }
 
 .navbar-ul {
-  width:1200px;
+  width: 1200px;
   list-style-type: none;
   padding: 0;
   display: flex;
@@ -65,7 +69,7 @@ code {
 .nav-item {
   margin-left: 20px;
   margin-right: 100px;
- 
+
 }
 
 .nav-link {
@@ -78,7 +82,8 @@ code {
   display: flex;
   justify-content: flex-end;
 }
-#card-title{
+
+#card-title {
   display: inline-block;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -86,12 +91,14 @@ code {
   max-width: 200px;
   font-size: small;
 }
-.product-detail-card{
+
+.product-detail-card {
   display: flex;
   flex-direction: row;
   /* justify-content: space-around */
 }
-.item-numbers-length{
+
+.item-numbers-length {
   background-color: rgb(224, 19, 19);
   border-radius: 80px;
   padding: 4px;
@@ -101,3 +108,15 @@ code {
   color: white;
 }
 
+
+.order-summary {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  width: 400px;
+  border: 2px solid rgb(122, 116, 116);
+  border-radius: 10px;
+  padding: 5px;
+  margin: 15px;
+
+}

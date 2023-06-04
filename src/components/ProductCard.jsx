@@ -4,9 +4,10 @@ import { addItem, removeItem } from "../redux/cartSlice";
 import { addFav, removeFav } from "../redux/favouriteSlice";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import Star from "./Star";
 
 
-const SubCategory = ({ data }) => {
+const ProductCard = ({ data }) => {
   const { id, title, price, image, rating } = data;
 
   const dispatch = useDispatch();
@@ -58,8 +59,8 @@ const SubCategory = ({ data }) => {
           </Link>
           <div className="card-body">
             <h5 className="card-title" id="card-title">Brand, {title} {id}</h5>
+            <Star star={rating.rate} reviews={rating.count} />
             <p>${price}</p>
-            <p>{rating.rate} stars,  reviews:-{rating.count}</p>
             <button
               onClick={addCartHandler}
               className="btn btn-primary btn-block"
@@ -73,4 +74,4 @@ const SubCategory = ({ data }) => {
     </>
   )
 }
-export default SubCategory;
+export default ProductCard;

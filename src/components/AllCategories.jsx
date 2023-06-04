@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Constants from '../api/Constants';
-import SubCategory from './SubCategory';
+import ProductCard from './ProductCard';
 
 const AllCategories = () => {
     const [categories, setCategories] = useState([])
@@ -24,7 +24,7 @@ const AllCategories = () => {
             {/* <h1>CategoryList</h1> */}
             <div className="row">
                 {
-                    categories.map((category) => <SubCategory data={category} />)
+                    categories.map((category) => <ProductCard data={category} />)
                 }
 
             </div>

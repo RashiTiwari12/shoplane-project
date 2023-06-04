@@ -8,11 +8,15 @@ const CartPage = () => {
   const dispatch = useDispatch()
   const myCart = useSelector(state => state.myCart)
   // { console.log(myCart) }
-
+  const ShoppingEstimate = 5;
+  const TaxEstimate = 5;
   if (myCart.length === 0) {
     return "Your cart Page is empty!!"
   } else {
-
+    const totalPrice = myCart.reduce((total, item) => total + item.price, 0);
+    const roundedSubTotal = Math.round(totalPrice);
+    const orderTotal = totalPrice + ShoppingEstimate + TaxEstimate;
+    const roundedOrderTotal = Math.round(orderTotal);
     return (
       <>
         {myCart.map(item => (
@@ -49,6 +53,14 @@ const CartPage = () => {
 
 
         ))}
+
+        <div className="order-summary">
+          <h3>Order Summary</h3>
+          <p>SubTotal &nbsp;  ${roundedSubTotal}</p>
+          <p>Shopping Estimate &nbsp; ${ShoppingEstimate}</p>
+          <p>Tax Estimate &nbsp; ${TaxEstimate}</p>
+          <p>Order Total &nbsp; ${roundedOrderTotal}</p>
+        </div>
 
       </>
     )

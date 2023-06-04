@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Endpoints from '../api/Endpoints';
-import SubCategory from './SubCategory';
+import ProductCard from './ProductCard';
 
 const ElectronicsList = () => {
     const [electronics, setElectronics] = useState([])
@@ -23,7 +23,7 @@ const ElectronicsList = () => {
             {/* <h1>CategoryList</h1> */}
             <div className="row">
                 {
-                    electronics.map((category) => <SubCategory data={category} />)
+                    electronics.map((category) => <ProductCard data={category} />)
                 }
 
 
